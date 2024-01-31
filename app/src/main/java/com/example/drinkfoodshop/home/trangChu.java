@@ -28,12 +28,15 @@ public class trangChu extends AppCompatActivity {
         recyclerViewCategoryList.setLayoutManager(linearLayoutManager);
 
         ArrayList<categoryDomain> category = new ArrayList<>();
-        category.add(new categoryDomain("bánh mì","cat_2"));
-        category.add(new categoryDomain("đồ khô","cat_4"));
-        category.add(new categoryDomain("nước ngọt","cat_2"));
-        category.add(new categoryDomain("Drink","cat_4"));
-        category.add(new categoryDomain("Donut","cat_2"));
-
+        category.add(new categoryDomain("Pizza","cat_2"));
+        category.add(new categoryDomain("Burger","cat_4"));
+        category.add(new categoryDomain("Chicken","cat_2"));
+        category.add(new categoryDomain("Sushi","cat_4"));
+        category.add(new categoryDomain("Meat","cat_2"));
+        category.add(new categoryDomain("Hotdog","cat_4"));
+        category.add(new categoryDomain("Drink","cat_2"));
+        category.add(new categoryDomain("More","cat_2"));
+        
         adapter = new catagoryAdapter(category);
         recyclerViewCategoryList.setAdapter(adapter);
     }

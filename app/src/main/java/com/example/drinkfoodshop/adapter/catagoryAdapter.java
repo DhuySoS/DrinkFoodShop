@@ -60,6 +60,16 @@ public class catagoryAdapter extends RecyclerView.Adapter<catagoryAdapter.ViewHo
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.cat_background5));
                 break;
             }
+            case 5:{
+                picUrl="cat_4";
+                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.cat_background5));
+                break;
+            }
+            case 6:{
+                picUrl="cat_2";
+                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.cat_background5));
+                break;
+            }
         }
         int drawbleResourceId = holder.itemView.getContext().getResources().getIdentifier(picUrl,"drawable",holder.itemView.getContext().getPackageName());
         Glide.with(holder.itemView.getContext())
