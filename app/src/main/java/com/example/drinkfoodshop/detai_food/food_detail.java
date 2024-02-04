@@ -1,12 +1,10 @@
 package com.example.drinkfoodshop.detai_food;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.view.View;
-
 import com.bumptech.glide.Glide;
-import com.example.drinkfoodshop.R;
 import com.example.drinkfoodshop.databinding.ActivityFoodDetailBinding;
 import com.example.drinkfoodshop.domain.categoryDomain;
 
@@ -43,5 +41,6 @@ public class food_detail extends AppCompatActivity {
 
     private void getIntentExtra() {
         object =(categoryDomain) getIntent().getSerializableExtra("object");
+        // tao đã sửa
     }
 }
