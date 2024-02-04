@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.drinkfoodshop.R;
-import com.example.drinkfoodshop.home.homeActivity;
+import com.example.drinkfoodshop.home.trangChu;
 import com.example.drinkfoodshop.loginAndRegister.intro;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,7 +35,7 @@ public class splashActivity extends AppCompatActivity {
             startActivity(intent);
         } else {
             //da login
-            Intent intent = new Intent(this, homeActivity.class);
+            Intent intent = new Intent(this, trangChu.class);
             startActivity(intent);
         }
         finish();

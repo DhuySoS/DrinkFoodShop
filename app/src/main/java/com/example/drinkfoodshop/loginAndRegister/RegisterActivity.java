@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.drinkfoodshop.R;
-import com.example.drinkfoodshop.home.homeActivity;
+import com.example.drinkfoodshop.home.trangChu;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -54,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
                             if (task.isSuccessful()){
                                 //khi dang ky thanh cong
                                 Toast.makeText(RegisterActivity.this,"Đăng ký tài khoản thành công",Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(RegisterActivity.this, homeActivity.class);
+                                Intent intent = new Intent(RegisterActivity.this, trangChu.class);
                                 startActivity(intent);
                                 finishAffinity();
                             }else{

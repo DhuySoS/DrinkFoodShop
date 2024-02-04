@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.drinkfoodshop.R;
-import com.example.drinkfoodshop.home.homeActivity;
+import com.example.drinkfoodshop.home.trangChu;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
                                     progressDialog.dismiss();
                                     if (task.isSuccessful()){
                                         // dang nhap thanh cong
-                                        Intent intent = new Intent(LoginActivity.this, homeActivity.class);
+                                        Intent intent = new Intent(LoginActivity.this, trangChu.class);
                                         startActivity(intent);
                                         finishAffinity();
                                     }else {

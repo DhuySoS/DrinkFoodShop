@@ -157,6 +157,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linearProfile"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
@@ -168,6 +169,7 @@
                         app:srcCompat="@drawable/person" />
 
                     <TextView
+                        android:id="@+id/tvProfile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Cá nhân"
@@ -177,12 +179,14 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linearCart"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
+                    android:gravity="center_horizontal"
                     android:orientation="vertical"
-                    android:visibility="visible"
-                    android:gravity="center_horizontal">
+                    android:visibility="visible">
+
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -198,6 +202,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linearHelp"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
@@ -219,6 +224,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linearSetting"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
