@@ -9,6 +9,9 @@ import com.example.drinkfoodshop.R;
 public class cart extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) 
-    // vu da o
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cart);
+    }
+    // vu da day
 }
