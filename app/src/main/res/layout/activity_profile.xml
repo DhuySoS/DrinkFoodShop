@@ -30,21 +30,22 @@
                     android:id="@+id/imageView"
                     android:layout_width="539dp"
                     android:layout_height="59dp"
+                    android:src="@drawable/arc_1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="-64dp"
-                    android:src="@drawable/arc_3" />
+                    tools:layout_editor_absoluteX="-64dp" />
 
                 <ImageView
                     android:id="@+id/imageView6"
                     android:layout_width="113dp"
                     android:layout_height="101dp"
+                    android:src="@drawable/IMG_1712"
                     app:layout_constraintEnd_toStartOf="@+id/imageView"
-                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_bias="0.501"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
                     tools:ignore="MissingConstraints"
                     tools:layout_editor_absoluteY="133dp"
-                    android:src="@drawable/img_1712" />
+                    tools:srcCompat="@drawable/cd09b412_4d3c_4c80_a540_cb8da218108c" />
 
                 <TextView
                     android:id="@+id/textView6"

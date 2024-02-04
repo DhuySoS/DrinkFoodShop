@@ -15,17 +15,20 @@
         android:theme="@style/Theme.DrinkFoodShop"
         tools:targetApi="31">
         <activity
+            android:name=".Profile1.Profile1"
+            android:exported="false" />
+        <activity
+            android:name=".Profile1"
+            android:exported="false" />
+        <activity
             android:name=".help.FAQActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".help.CustomerSupportActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".help.ContactSupportActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".detai_food.food_detail"
             android:exported="true" />
@@ -34,7 +37,7 @@
             android:exported="true" />
         <activity
             android:name=".home.trangChu"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,8 +49,7 @@
             android:exported="true" />
         <activity
             android:name=".loginAndRegister.LoginActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".loginAndRegister.RegisterActivity"
             android:exported="false" />
