@@ -1,11 +1,9 @@
 package com.example.drinkfoodshop.home;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,8 +13,7 @@ import com.example.drinkfoodshop.R;
 import com.example.drinkfoodshop.adapter.catagoryAdapter;
 import com.example.drinkfoodshop.domain.categoryDomain;
 import com.example.drinkfoodshop.help.CustomerSupportActivity;
-import com.example.drinkfoodshop.loginAndRegister.intro;
-import com.example.drinkfoodshop.profile.ProfileActivity;
+import com.example.drinkfoodshop.domain.ProfileActivity;
 
 import java.util.ArrayList;
 

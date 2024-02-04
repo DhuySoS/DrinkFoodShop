@@ -1,8 +1,10 @@
-package com.example.drinkfoodshop;
+package com.example.drinkfoodshop.domain;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.drinkfoodshop.R;
 
 public class viewholder_activity extends AppCompatActivity {
 
