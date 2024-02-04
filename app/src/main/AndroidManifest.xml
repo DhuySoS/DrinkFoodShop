@@ -18,17 +18,8 @@
             android:name=".domain.viewholder_activity"
             android:exported="false" />
         <activity
-            android:name=".food_item"
+            android:name=".Profile1.Profile1"
             android:exported="false" />
-        <activity
-            android:name=".domain.cart"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".help.FAQActivity"
             android:exported="true" />
@@ -42,13 +33,15 @@
             android:name=".detai_food.food_detail"
             android:exported="true" />
         <activity
-            android:name=".domain.ProfileActivity"
-            android:exported="true" />
-        <activity
             android:name=".home.trangChu"
-            android:exported="true"></activity>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
-            android:name=".theme.splashActivity"
+            android:name=".domain.ProfileActivity"
             android:exported="true" />
         <activity
             android:name=".loginAndRegister.LoginActivity"
