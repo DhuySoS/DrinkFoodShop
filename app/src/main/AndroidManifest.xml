@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,13 +13,8 @@
         android:theme="@style/Theme.DrinkFoodShop"
         tools:targetApi="31">
         <activity
-            android:name=".profile.ProfileActivity"
+            android:name=".detai_food.food_detail"
             android:exported="true" >
-
-        </activity>
-        <activity
-            android:name=".home.trangChu"
-            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,16 +22,22 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".profile.ProfileActivity"
+            android:exported="true" >
+        </activity>
+        <activity
+            android:name=".home.trangChu"
+            android:exported="true">
+        </activity>
+        <activity
             android:name=".adminApp"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".home.homeActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".theme.splashActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".loginAndRegister.LoginActivity"
             android:exported="false" />
