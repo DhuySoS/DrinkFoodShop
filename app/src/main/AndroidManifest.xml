@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
@@ -13,9 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DrinkFoodShop"
-        tools:targetApi="31">
+        tools:targetApi="31" >
+
         <activity
-            android:name=".domain.viewholder_activity"
+            android:name=".cart.viewholder_activity"
             android:exported="false" />
         <activity
             android:name=".Profile1.Profile1"
@@ -33,15 +34,20 @@
             android:name=".detai_food.food_detail"
             android:exported="true" />
         <activity
-            android:name=".home.trangChu"
-            android:exported="true">
+            android:name=".theme.splashActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".domain.ProfileActivity"
+            android:name=".home.trangChu"
+            android:exported="true" >
+        </activity>
+        <activity
+            android:name=".Profile1.ProfileActivity"
             android:exported="true" />
         <activity
             android:name=".loginAndRegister.LoginActivity"

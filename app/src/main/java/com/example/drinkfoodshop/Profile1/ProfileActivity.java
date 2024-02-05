@@ -1,4 +1,4 @@
-package com.example.drinkfoodshop.domain;
+package com.example.drinkfoodshop.Profile1;
 
 import android.widget.ImageView;
 import android.widget.TextView;

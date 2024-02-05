@@ -13,7 +13,7 @@ import com.example.drinkfoodshop.R;
 import com.example.drinkfoodshop.adapter.catagoryAdapter;
 import com.example.drinkfoodshop.domain.categoryDomain;
 import com.example.drinkfoodshop.help.CustomerSupportActivity;
-import com.example.drinkfoodshop.domain.ProfileActivity;
+import com.example.drinkfoodshop.Profile1.ProfileActivity;
 
 import java.util.ArrayList;
 
