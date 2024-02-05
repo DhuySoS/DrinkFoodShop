@@ -143,7 +143,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="22dp"
                     android:paddingRight="22dp"
-                    android:scrollbars="vertical"
+
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -229,6 +229,8 @@
                     android:visibility="visible">
 
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+                        android:id="@+id/cartHome"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#ff5e00"

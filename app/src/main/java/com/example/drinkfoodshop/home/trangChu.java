@@ -3,7 +3,6 @@ package com.example.drinkfoodshop.home;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
@@ -11,23 +10,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.drinkfoodshop.Profile1.ProfileActivity;
 import com.example.drinkfoodshop.R;
 import com.example.drinkfoodshop.adapter.bestFoodAdapter;
 import com.example.drinkfoodshop.adapter.catagoryAdapter;
+import com.example.drinkfoodshop.cart.cart;
 import com.example.drinkfoodshop.databinding.ActivityHomeBinding;
-import com.example.drinkfoodshop.domain.Location;
 import com.example.drinkfoodshop.domain.categoryDomain;
 import com.example.drinkfoodshop.domain.food;
 import com.example.drinkfoodshop.help.CustomerSupportActivity;
-import com.example.drinkfoodshop.Profile1.ProfileActivity;
-import com.example.drinkfoodshop.loginAndRegister.intro;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
 
 import java.util.ArrayList;
 
@@ -36,6 +34,7 @@ public class trangChu extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerViewCategoryList;
     private LinearLayout lProfile, lCart, lHelp, lSetting;
+    private FloatingActionButton btnCart;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +42,8 @@ public class trangChu extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         lProfile = findViewById(R.id.linearProfile);
-        lCart = findViewById(R.id.linearCart);
+//        lCart=findViewById(R.id.linearCart);
+        btnCart=findViewById(R.id.cartHome);
         lHelp = findViewById(R.id.linearHelp);
         lSetting = findViewById(R.id.linearSetting);
 
@@ -64,14 +64,13 @@ public class trangChu extends AppCompatActivity {
             }
         });
 // click vào giỏ hàng
-//        lCart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(trangChu.this, ProfileActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
+    btnCart.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            startActivity(new Intent(trangChu.this, cart.class));
+        }
+    });
+
 // click vào Trợ giúp
         lHelp.setOnClickListener(new View.OnClickListener() {
             @Override
