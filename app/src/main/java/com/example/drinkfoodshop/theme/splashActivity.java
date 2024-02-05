@@ -1,10 +1,10 @@
 package com.example.drinkfoodshop.theme;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.drinkfoodshop.R;
 import com.example.drinkfoodshop.home.trangChu;

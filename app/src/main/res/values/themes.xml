@@ -6,6 +6,11 @@
     </style>
 
     <style name="Theme.DrinkFoodShop" parent="Base.Theme.DrinkFoodShop" />
+    <style name="textStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">#3E4673</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
 
 

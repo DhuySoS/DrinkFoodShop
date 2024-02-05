@@ -1,12 +1,10 @@
 package com.example.drinkfoodshop.home;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,14 +19,15 @@ import com.example.drinkfoodshop.domain.Location;
 import com.example.drinkfoodshop.domain.categoryDomain;
 import com.example.drinkfoodshop.domain.food;
 import com.example.drinkfoodshop.help.CustomerSupportActivity;
+import com.example.drinkfoodshop.Profile1.ProfileActivity;
 import com.example.drinkfoodshop.loginAndRegister.intro;
-import com.example.drinkfoodshop.profile.ProfileActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
 
 import java.util.ArrayList;
 
