@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Admin Page</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Administer Products</h2>
+
+        <label>ID</label>
+        <input type="number" id="IdIpn">
+        <br><br>
+
+        <label>Title</label>
+        <input type="text" id="TitleIpn">
+        <br><br>
+
+        <label>CategoryId</label>
+        <select id="CatInp">
+            <option value="0">Pizza</option>
+            <option value="1">Burger</option>
+            <option value="2">Chicken</option>
+            <option value="3">Sushi</option>
+            <option value="4">Meat</option>
+            <option value="5">Hotdog</option>
+            <option value="6">Drink</option>
+            <option value="7">More</option>
+        </select>
+        <br><br>
+
+        <label>Price</label>
+        <input type="number" id="PriIpn">
+        <br><br>
+
+        <label>Description</label>
+        <input type="text" id="DesIpn">
+        <br><br>
+
+        <label>ImgPath</label>
+        <input type="url" id="ImgPtInp">
+        <br><br>
+
+        <div class="chk-bf">Best Food<input id="BFInp" type="checkbox"></div>
+        <br><br>
+
+        <div class="btn-container">
+            <button id="AddBtn">Add</button>
+            <button id="RetBtn">Retrieve</button>
+            <button id="UpdBtn">Update</button>
+            <button id="DelBtn">Delete</button>
+            <button id="LstPro">List Product</button>
+        </div>
+        <br>
+
+    </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyCOV6qN-P2NaVjxwZEgezK4G-ICfNexcJ8",
+            authDomain: "drink-food-shop.firebaseapp.com",
+            databaseURL: "https://drink-food-shop-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "drink-food-shop",
+            storageBucket: "drink-food-shop.appspot.com",
+            messagingSenderId: "431577033445",
+            appId: "1:431577033445:web:1eb14fe06ee189528d820c",
+            measurementId: "G-0G2WKKX6W6"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        import { getDatabase, ref, child, get, set, update, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        const db = getDatabase();
+
+        let IdIpn = document.getElementById('IdIpn');
+        let TitleIpn = document.getElementById('TitleIpn');
+        let CatInp = document.getElementById('CatInp');
+        let PriIpn = document.getElementById('PriIpn');
+        let DesIpn = document.getElementById('DesIpn');
+        let ImgPtInp = document.getElementById('ImgPtInp');
+        let BFInp = document.getElementById('BFInp');
+
+        let AddBtn = document.getElementById('AddBtn');
+        let RetBtn = document.getElementById('RetBtn');
+        let UpdBtn = document.getElementById('UpdBtn');
+        let DelBtn = document.getElementById('DelBtn');
+
+        function AddData() {
+            set(ref(db, 'Foods/' + IdIpn.value), {
+                Id: Number(IdIpn.value),
+                Title: TitleIpn.value,
+                CategoryId: Number(CatInp.value),
+                Price: Number(PriIpn.value),
+                Description: DesIpn.value,
+                ImagePath: ImgPtInp.value,
+                BestFood: BFInp.checked
+            })
+                .then(() => {
+                    alert("Data Add Successfully");
+                })
+                .catch((error) => {
+                    alert("Unsuccessful");
+                    console.log(error);
+                })
+        }
+
+        function RetData() {
+            const dbRef = ref(db);
+
+            get(child(dbRef, 'Foods/' + IdIpn.value)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    IdIpn.value = snapshot.val().Id;
+                    TitleIpn.value = snapshot.val().Title;
+                    CatInp.value = snapshot.val().CategoryId;
+                    PriIpn.value = snapshot.val().Price;
+                    DesIpn.value = snapshot.val().Description;
+                    ImgPtInp.value = snapshot.val().ImagePath;
+                    BFInp.checked = (snapshot.val().BestFood);
+                }
+                else {
+                    alert("Food does not exists");
+                }
+            })
+                .catch((error) => {
+                    alert("Unsuccessful");
+                    console.log(error);
+                })
+        }
+
+        function UpData() {
+            update(ref(db, 'Foods/' + IdIpn.value), {
+                Id: Number(IdIpn.value),
+                Title: TitleIpn.value,
+                CategoryId: Number(CatInp.value),
+                Price: Number(PriIpn.value),
+                Description: DesIpn.value,
+                ImagePath: ImgPtInp.value,
+                BestFood: BFInp.checked
+            })
+                .then(() => {
+                    alert("Data Update Successfully");
+                })
+                .catch((error) => {
+                    alert("Unsuccessful");
+                    console.log(error);
+                })
+        }
+
+        function DelData() {
+            remove(ref(db, 'Foods/' + IdIpn.value),)
+                .then(() => {
+                    alert("Delete successfully");
+                })
+                .catch((error) => {
+                    alert("Unsucessfull");
+                    console.log(error);
+                })
+        }
+
+        AddBtn.addEventListener('click', AddData);
+        RetBtn.addEventListener('click', RetData);
+        UpdBtn.addEventListener('click', UpData);
+        DelBtn.addEventListener('click', DelData);
+
+        document.getElementById('LstPro').addEventListener('click', function () {
+            window.location.href = 'listproduct.html';
+        });
+
+    </script>
+</body>
+
+</html>

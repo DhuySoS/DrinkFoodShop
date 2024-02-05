@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>List Product</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>List Product</h2>
+        <div class="fnd-btn">
+            <input type="number" id="findIdPro">
+            <button id="fndPro">Find</button>
+        </div>
+        <br><br>
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>CategoryId</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>ImgPath</th>
+                        <th>BestFood</th>
+                        <!-- <th>Action</th> -->
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+
+                </tbody>
+            </table>
+        </div>
+        <br><br>
+        <div class="back-btn"><button id="return">Back</button></div>
+    </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyCOV6qN-P2NaVjxwZEgezK4G-ICfNexcJ8",
+            authDomain: "drink-food-shop.firebaseapp.com",
+            databaseURL: "https://drink-food-shop-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "drink-food-shop",
+            storageBucket: "drink-food-shop.appspot.com",
+            messagingSenderId: "431577033445",
+            appId: "1:431577033445:web:1eb14fe06ee189528d820c",
+            measurementId: "G-0G2WKKX6W6"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        import { getDatabase, ref, onValue, update } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        var db = getDatabase();
+
+        // Lấy thông tin từ Foods
+        var foodsRef = ref(db, 'Foods');
+
+        var tableBody = document.getElementById('tableBody');
+
+        // Duyệt từng phần
+        onValue(foodsRef, (snapshot) => {
+            snapshot.forEach((childSnapshot) => {
+                var childData = childSnapshot.val();
+                // Tạo dòng và ô
+                var row = document.createElement('tr');
+                var idCell = document.createElement('td');
+                var titleCell = document.createElement('td');
+                var categoryIdCell = document.createElement('td');
+                var priceCell = document.createElement('td');
+                var descriptionCell = document.createElement('td');
+                var imgPathCell = document.createElement('td');
+                var bestFoodCell = document.createElement('td');
+
+                // tạo checkbox cho bestfood
+                // tạo checkbox cho bestfood
+                var bestFoodCheckbox = document.createElement('input');
+                bestFoodCheckbox.type = 'checkbox';
+                bestFoodCheckbox.checked = childData.BestFood;
+                // Thêm sự kiện change cho checkbox
+                bestFoodCheckbox.addEventListener('change', function () {
+                    // Cập nhật giá trị BestFood trong cơ sở dữ liệu
+                    var foodRef = ref(db, 'Foods/' + childSnapshot.key);
+                    update(foodRef, { BestFood: this.checked });
+                });
+
+                // thêm dữ liệu vào 
+                idCell.textContent = childData.Id;
+                titleCell.textContent = childData.Title;
+                categoryIdCell.textContent = childData.CategoryId;
+                priceCell.textContent = childData.Price;
+                descriptionCell.textContent = childData.Description;
+                imgPathCell.textContent = childData.ImagePath;
+                bestFoodCell.appendChild(bestFoodCheckbox);
+
+                row.appendChild(idCell);
+                row.appendChild(titleCell);
+                row.appendChild(categoryIdCell);
+                row.appendChild(priceCell);
+                row.appendChild(descriptionCell);
+                row.appendChild(imgPathCell);
+                row.appendChild(bestFoodCell);
+
+                tableBody.appendChild(row);
+            });
+        });
+
+        // Thêm sự kiện click cho nút tìm kiếm
+        document.getElementById('fndPro').addEventListener('click', function () {
+            // Lấy ID từ ô nhập liệu
+            var id = document.getElementById('findIdPro').value;
+
+            // Duyệt qua tất cả các dòng trong bảng
+            var rows = document.getElementById('tableBody').getElementsByTagName('tr');
+            for (var i = 0; i < rows.length; i++) {
+                // Lấy ID từ cột ID của dòng hiện tại
+                var currentId = rows[i].getElementsByTagName('td')[0].textContent;
+
+                // So sánh ID hiện tại với ID từ ô nhập liệu
+                if (currentId === id) {
+                    // Nếu khớp, cuộn đến dòng hiện tại và thoát khỏi vòng lặp
+                    rows[i - 1].scrollIntoView();
+                    break;
+                }
+            }
+        });
+
+        document.getElementById('return').addEventListener('click', function () {
+            window.location.href = 'admin.html';
+        });
+    </script>
+</body>
+
+</html>
