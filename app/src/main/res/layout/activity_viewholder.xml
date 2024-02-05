@@ -16,7 +16,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/vu1"
+            android:id="@+id/anhsp"
             android:layout_width="123dp"
             android:layout_height="96dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -25,23 +25,23 @@
             tools:src="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/vu13"
+            android:id="@+id/loaitxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:text="Loại:"
-            app:layout_constraintStart_toEndOf="@+id/vu1"
+            app:layout_constraintStart_toEndOf="@+id/anhsp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/vu15"
+            android:id="@+id/tienmoiloai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Giá:"
-            app:layout_constraintStart_toStartOf="@+id/vu13"
-            app:layout_constraintTop_toBottomOf="@+id/vu13" />
+            app:layout_constraintStart_toStartOf="@+id/loaitxt"
+            app:layout_constraintTop_toBottomOf="@+id/loaitxt" />
 
         <TextView
             android:id="@+id/vu17"
@@ -49,41 +49,42 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:text="VND"
-            app:layout_constraintBottom_toBottomOf="@+id/vu1"
+            app:layout_constraintBottom_toBottomOf="@+id/anhsp"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tongsotien"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp">
 
             <TextView
-                android:id="@+id/plus"
-                android:layout_width="90dp"
+                android:id="@+id/plusCartbtn"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="72dp"
+                android:layout_marginTop="64dp"
                 android:text="+"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/minus"
+                app:layout_constraintHorizontal_bias="0.299"
+                app:layout_constraintStart_toEndOf="@+id/minusCartbtn"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/minus"
-                android:layout_width="90dp"
+                android:id="@+id/minusCartbtn"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="156dp"
-                android:layout_marginTop="72dp"
+                android:layout_marginStart="160dp"
+                android:layout_marginTop="60dp"
                 android:text="-"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/vu16"
-                android:layout_width="90dp"
+                android:id="@+id/numberItem"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="192dp"
                 android:layout_marginBottom="8dp"
