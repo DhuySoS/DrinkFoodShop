@@ -13,13 +13,21 @@ public class categoryDomain implements Serializable {
     private double price;
     private int priceId;
     private int numberInCart;
+    private int Id;
+    private String ImagePath;
+    private String Name;
 
     public categoryDomain(String title, String pic) {
         this.title = title;
         this.pic = pic;
     }
 
-    // Thêm các phương thức getter và setter
+    public categoryDomain(int id, String imagePath, String name) {
+        Id = id;
+        ImagePath = imagePath;
+        Name = name;
+    }
+// Thêm các phương thức getter và setter
 
     public int getCategoryId() {
         return categoryId;
@@ -46,11 +54,11 @@ public class categoryDomain implements Serializable {
     }
 
     public int getId() {
-        return id;
+        return Id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.Id = id;
     }
 
     public int getLocationId() {
@@ -99,5 +107,21 @@ public class categoryDomain implements Serializable {
 
     public void setPic(String pic) {
         this.pic = pic;
+    }
+
+    public String getImagePath() {
+        return ImagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        ImagePath = imagePath;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
     }
 }

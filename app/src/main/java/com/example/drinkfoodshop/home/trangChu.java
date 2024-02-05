@@ -39,14 +39,14 @@ public class trangChu extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        binding = ActivityHomeBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
         lProfile = findViewById(R.id.linearProfile);
         lCart = findViewById(R.id.linearCart);
         lHelp = findViewById(R.id.linearHelp);
         lSetting = findViewById(R.id.linearSetting);
 
-        binding = ActivityHomeBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
         onclick();
         recyclerViewCategory();
         initBestFood();

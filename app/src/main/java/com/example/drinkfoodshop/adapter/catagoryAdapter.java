@@ -1,5 +1,7 @@
 package com.example.drinkfoodshop.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +16,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.drinkfoodshop.R;
 import com.example.drinkfoodshop.domain.categoryDomain;
+import com.example.drinkfoodshop.foodList.listFoodsActivity;
 
 import java.util.ArrayList;
 
 public class catagoryAdapter extends RecyclerView.Adapter<catagoryAdapter.ViewHolder> {
     ArrayList<categoryDomain>categoryDomains;
+    Context context;
 
     public catagoryAdapter(ArrayList<categoryDomain> categoryDomains) {
         this.categoryDomains = categoryDomains;
@@ -26,6 +30,7 @@ public class catagoryAdapter extends RecyclerView.Adapter<catagoryAdapter.ViewHo
 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        context = parent.getContext();
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_category,parent,false);
         return new ViewHolder(inflate);
     }
@@ -80,6 +85,16 @@ public class catagoryAdapter extends RecyclerView.Adapter<catagoryAdapter.ViewHo
         Glide.with(holder.itemView.getContext())
                 .load(drawbleResourceId)
                 .into(holder.categoryPic);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, listFoodsActivity.class);
+                intent.putExtra("CategoryId",categoryDomains.get(position).getId());
+                intent.putExtra("CategoryName",categoryDomains.get(position).getName());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
