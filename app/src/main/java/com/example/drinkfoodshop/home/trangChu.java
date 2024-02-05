@@ -19,6 +19,7 @@ import com.example.drinkfoodshop.databinding.ActivityHomeBinding;
 import com.example.drinkfoodshop.domain.categoryDomain;
 import com.example.drinkfoodshop.domain.food;
 import com.example.drinkfoodshop.help.CustomerSupportActivity;
+import com.example.drinkfoodshop.setting.settingActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -84,7 +85,7 @@ public class trangChu extends AppCompatActivity {
         lSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(trangChu.this, ProfileActivity.class);
+                Intent intent = new Intent(trangChu.this, settingActivity.class);
                 startActivity(intent);
                 finish();
             }
