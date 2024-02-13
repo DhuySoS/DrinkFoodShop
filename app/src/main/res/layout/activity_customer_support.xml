@@ -15,8 +15,8 @@
         android:textAlignment="center"
         android:drawableLeft="@drawable/back"
         android:textColor="#FFFFFF"
-        android:background="#FFA500"
-        android:padding="16dp"/>
+        android:background="@color/background"
+        android:padding="12dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

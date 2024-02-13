@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -12,6 +13,7 @@ import com.example.drinkfoodshop.R;
 import com.example.drinkfoodshop.adapter.foodListAdapter;
 import com.example.drinkfoodshop.databinding.ActivityListFoodsBinding;
 import com.example.drinkfoodshop.domain.food;
+import com.example.drinkfoodshop.home.trangChu;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,8 +26,8 @@ import java.util.ArrayList;
 public class listFoodsActivity extends AppCompatActivity {
     ActivityListFoodsBinding binding;
     private RecyclerView.Adapter adapterListFood;
-    private int categoryId;
-    private String categoryName;
+    private int Id;
+    private String Name;
     private String searchText;
     private boolean isSearch;
     @Override
@@ -49,7 +51,7 @@ public class listFoodsActivity extends AppCompatActivity {
         if(isSearch){
             query=myRef.orderByChild("Title").startAt(searchText).endAt(searchText+'\uf8ff');
         }else {
-            query = myRef.orderByChild("CategoryId").equalTo(categoryId);
+            query = myRef.orderByChild("CategoryId").equalTo(Id);
         }
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -75,12 +77,19 @@ public class listFoodsActivity extends AppCompatActivity {
     }
 
     private void getIntentExtra() {
-        categoryId = getIntent().getIntExtra("CategoryId",0);
-        categoryName = getIntent().getStringExtra("CategoryName");
+        Id = getIntent().getIntExtra("CategoryId",0);
+        Name = getIntent().getStringExtra("CategoryName");
         searchText = getIntent().getStringExtra("text");
         isSearch = getIntent().getBooleanExtra("isSearch",false);
 
-        binding.titletxt.setText(categoryName);
-        binding.back.setOnClickListener(v -> finish());
+        binding.titletxt.setText(Name);
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(listFoodsActivity.this, trangChu.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }

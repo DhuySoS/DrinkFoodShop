@@ -1,5 +1,6 @@
 package com.example.drinkfoodshop.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -36,8 +37,8 @@ public class catagoryAdapter extends RecyclerView.Adapter<catagoryAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.categoryName.setText(categoryDomains.get(position).getTitle());
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+        holder.categoryName.setText(categoryDomains.get(position).getName());
         String picUrl="";
         switch (position){
             case 0:{

@@ -52,7 +52,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/editTextText"
+                    android:id="@+id/searchTxt"
                     android:layout_width="323dp"
                     android:layout_height="46dp"
                     android:layout_marginStart="32dp"
@@ -79,7 +79,7 @@
                     android:background="@drawable/orange_light_banner"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+                    app:layout_constraintTop_toBottomOf="@+id/searchTxt" />
 
                 <TextView
                     android:id="@+id/textView9"
@@ -145,6 +145,7 @@
                     android:paddingRight="22dp"
 
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -153,7 +154,7 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="415dp"
-        android:layout_height="67dp"
+        android:layout_height="55dp"
         app:layout_constraintBottom_toBottomOf="@+id/scrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">

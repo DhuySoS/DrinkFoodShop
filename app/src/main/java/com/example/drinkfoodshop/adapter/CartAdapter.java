@@ -1,5 +1,6 @@
 package com.example.drinkfoodshop.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,17 +16,18 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.example.drinkfoodshop.R;
 import com.example.drinkfoodshop.domain.categoryDomain;
+import com.example.drinkfoodshop.domain.food;
 import com.example.drinkfoodshop.help.ChangeNumberItemsListener;
 import com.example.drinkfoodshop.help.ManagmentCart;
 
 import java.util.ArrayList;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.viewholder> {
-    ArrayList<categoryDomain> list;
+    ArrayList<food> list;
     private ManagmentCart managmentCart;
     ChangeNumberItemsListener changeNumberItemsListener;
 
-    public CartAdapter(ArrayList<categoryDomain> list, Context context, ChangeNumberItemsListener changeNumberItemsListener) {
+    public CartAdapter(ArrayList<food> list, Context context, ChangeNumberItemsListener changeNumberItemsListener) {
         this.list = list;
         managmentCart=new ManagmentCart(context);
         this.changeNumberItemsListener = changeNumberItemsListener;
@@ -42,14 +44,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.viewholder> {
 
 
     @Override
-    public void onBindViewHolder(@NonNull CartAdapter.viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull CartAdapter.viewholder holder, @SuppressLint("RecyclerView") int position) {
             holder.loai.setText(list.get(position).getTitle()+" ");
             holder.tienmoisp.setText(list.get(position).getPrice()+" ");
             holder.tongtien.setText(list.get(position).getNumberInCart()+"*" +(list.get(position).getNumberInCart())*list.get(position).getPrice());
             holder.soluong.setText(list.get(position).getNumberInCart()+" ");
 
         Glide.with(holder.itemView.getContext())
-                .load(list.get(position).getPic())
+                .load(list.get(position).getImagePath())
                 .transform(new CenterCrop(),new RoundedCorners(30))
                 .into(holder.pic);
 

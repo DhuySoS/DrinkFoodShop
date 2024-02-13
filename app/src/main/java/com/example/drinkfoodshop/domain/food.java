@@ -1,6 +1,8 @@
 package com.example.drinkfoodshop.domain;
 
-public class food {
+import java.io.Serializable;
+
+public class food implements Serializable {
     private int CategoryId;
     private String Description;
     private boolean BestFood;
@@ -9,6 +11,7 @@ public class food {
     private int NumberInCart;
     private String Title;
     private String ImagePath;
+    private int priceId;
 
     public food() {
     }

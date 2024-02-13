@@ -4,6 +4,8 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.example.drinkfoodshop.domain.categoryDomain;
+import com.example.drinkfoodshop.domain.food;
+
 import java.util.ArrayList;
 
 
@@ -16,8 +18,8 @@ public class ManagmentCart {
         this.tinyDB=new TinyDB(context);
     }
 
-    public void insertFood(categoryDomain item) {
-        ArrayList<categoryDomain> listpop = getListCart();
+    public void insertFood(food item) {
+        ArrayList<food> listpop = getListCart();
         boolean existAlready = false;
         int n = 0;
         for (int i = 0; i < listpop.size(); i++) {
@@ -36,19 +38,19 @@ public class ManagmentCart {
         Toast.makeText(context, "Added to your Cart", Toast.LENGTH_SHORT).show();
     }
 
-    public ArrayList<categoryDomain> getListCart() {
+    public ArrayList<food> getListCart() {
         return tinyDB.getListObject("CartList");
     }
 
     public Double getTotalFee(){
-        ArrayList<categoryDomain> listItem=getListCart();
+        ArrayList<food> listItem=getListCart();
         double fee=0;
         for (int i = 0; i < listItem.size(); i++) {
             fee=fee+(listItem.get(i).getPrice()*listItem.get(i).getNumberInCart());
         }
         return fee;
     }
-    public void minusNumberItem(ArrayList<categoryDomain> listItem,int position,ChangeNumberItemsListener changeNumberItemsListener){
+    public void minusNumberItem(ArrayList<food> listItem, int position, ChangeNumberItemsListener changeNumberItemsListener){
         if(listItem.get(position).getNumberInCart()==1){
             listItem.remove(position);
         }else{
@@ -57,7 +59,7 @@ public class ManagmentCart {
         tinyDB.putListObject("CartList",listItem);
         changeNumberItemsListener.change();
     }
-    public  void plusNumberItem(ArrayList<categoryDomain> listItem,int position,ChangeNumberItemsListener changeNumberItemsListener){
+    public  void plusNumberItem(ArrayList<food> listItem, int position, ChangeNumberItemsListener changeNumberItemsListener){
         listItem.get(position).setNumberInCart(listItem.get(position).getNumberInCart()+1);
         tinyDB.putListObject("CartList",listItem);
         changeNumberItemsListener.change();

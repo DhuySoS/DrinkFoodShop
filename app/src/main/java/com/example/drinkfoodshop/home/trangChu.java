@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,6 +19,7 @@ import com.example.drinkfoodshop.cart.cart;
 import com.example.drinkfoodshop.databinding.ActivityHomeBinding;
 import com.example.drinkfoodshop.domain.categoryDomain;
 import com.example.drinkfoodshop.domain.food;
+import com.example.drinkfoodshop.foodList.listFoodsActivity;
 import com.example.drinkfoodshop.help.CustomerSupportActivity;
 import com.example.drinkfoodshop.setting.settingActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -51,6 +53,19 @@ public class trangChu extends AppCompatActivity {
         onclick();
         recyclerViewCategory();
         initBestFood();
+        setVariable();
+    }
+
+    private void setVariable() {
+        binding.searchTxt.setOnClickListener(v -> {
+            String text = binding.searchTxt.getText().toString();
+            if(!text.isEmpty()){
+                Intent intent = new Intent(trangChu.this, listFoodsActivity.class);
+                intent.putExtra("text", text);
+                intent.putExtra("isSearch",true);
+                startActivity((intent));
+            }
+        });
     }
 
 
@@ -99,14 +114,14 @@ public class trangChu extends AppCompatActivity {
         recyclerViewCategoryList.setLayoutManager(linearLayoutManager);
 
         ArrayList<categoryDomain> category = new ArrayList<>();
-        category.add(new categoryDomain("Pizza", "cat_1"));
-        category.add(new categoryDomain("Burger", "cat_2"));
-        category.add(new categoryDomain("Chicken", "cat_3"));
-        category.add(new categoryDomain("Sushi", "cat_4"));
-        category.add(new categoryDomain("Meat", "cat_5"));
-        category.add(new categoryDomain("Hotdog", "cat_6"));
-        category.add(new categoryDomain("Drink", "cat_7"));
-        category.add(new categoryDomain("More", "cat_8"));
+        category.add(new categoryDomain("Pizza", "cat_1",0));
+        category.add(new categoryDomain("Burger", "cat_2",1));
+        category.add(new categoryDomain("Chicken", "cat_3",2));
+        category.add(new categoryDomain("Sushi", "cat_4",3));
+        category.add(new categoryDomain("Meat", "cat_5",4));
+        category.add(new categoryDomain("Hotdog", "cat_6",5));
+        category.add(new categoryDomain("Drink", "cat_7",6));
+        category.add(new categoryDomain("More", "cat_8",7));
 
         adapter = new catagoryAdapter(category);
         recyclerViewCategoryList.setAdapter(adapter);
@@ -128,6 +143,7 @@ public class trangChu extends AppCompatActivity {
                     }
                     if (list.size() > 0) {
                         binding.recyclerViewBestFood.setLayoutManager(new LinearLayoutManager(trangChu.this, LinearLayoutManager.HORIZONTAL, false));
+//                        binding.recyclerViewBestFood.setLayoutManager(new GridLayoutManager(trangChu.this, 2));
                         RecyclerView.Adapter adapter1 = new bestFoodAdapter(list);
                         binding.recyclerViewBestFood.setAdapter(adapter1);
                     }

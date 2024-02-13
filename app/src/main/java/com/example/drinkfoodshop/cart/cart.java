@@ -1,5 +1,6 @@
 package com.example.drinkfoodshop.cart;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -11,6 +12,7 @@ import com.example.drinkfoodshop.adapter.CartAdapter;
 import com.example.drinkfoodshop.databinding.ActivityCartBinding;
 import com.example.drinkfoodshop.help.ChangeNumberItemsListener;
 import com.example.drinkfoodshop.help.ManagmentCart;
+import com.example.drinkfoodshop.home.trangChu;
 
 public class cart extends AppCompatActivity {
     private ActivityCartBinding  binding;
@@ -40,8 +42,9 @@ public class cart extends AppCompatActivity {
             binding.emptyTxt.setVisibility(View.GONE);
             binding.scrollView3.setVisibility(View.VISIBLE);
         }
-        LinearLayoutManager linearLayoutManager=   new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
-        binding.cardView.setLayoutManager(linearLayoutManager);
+//        LinearLayoutManager linearLayoutManager=   new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+//        binding.cardView.setLayoutManager(linearLayoutManager);
+        binding.cardView.setLayoutManager(new LinearLayoutManager(this));
         apdapter=new CartAdapter(managmentCart.getListCart(), this, new ChangeNumberItemsListener() {
             @Override
             public void change() {
@@ -68,7 +71,11 @@ public class cart extends AppCompatActivity {
     }
 
     private void setVariable(){
-        binding.backBtn.setOnClickListener(v->finish());
+        binding.Cart.setOnClickListener(v -> {
+            Intent intent = new Intent(cart.this, trangChu.class);
+            startActivity(intent);
+            finish();
+        });
 
     }
     // vu da day

@@ -8,12 +8,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.example.drinkfoodshop.databinding.ActivityFoodDetailBinding;
 import com.example.drinkfoodshop.domain.categoryDomain;
+import com.example.drinkfoodshop.domain.food;
 import com.example.drinkfoodshop.help.ManagmentCart;
 
 public class food_detail extends AppCompatActivity {
     ActivityFoodDetailBinding binding;
-    private int num =1;
-    private categoryDomain object;
+    private int num =0;
+    private food object;
     private ManagmentCart managmentCart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,29 +32,29 @@ public class food_detail extends AppCompatActivity {
 
         if (object != null) {
             Glide.with(food_detail.this)
-                    .load(object.getPic())
+                    .load(object.getImagePath())
                     .into(binding.Pic);
-            binding.Pricetxt.setText("$" + object.getPrice());
+            binding.Pricetxt.setText(object.getPrice() + " VNĐ");
             binding.titleTxt.setText(object.getTitle());
             binding.DescriptionTxt.setText(object.getDescription());
-            binding.totalTxt.setText((num * object.getPrice() + "$"));
+            binding.totalTxt.setText((num * object.getPrice() + " VNĐ"));
         }
         binding.plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 num=num+1;
                 binding.numtxt.setText(num+" ");
-                binding.totalTxt.setText((num*object.getPrice())+"");
+                binding.totalTxt.setText((num*object.getPrice())+" VNĐ");
 
             }
         });
         binding.minuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (num > 1){
+                if (num > 0){
                     num=num-1;
                     binding.numtxt.setText(num+"");
-                    binding.totalTxt.setText((num*object.getPrice())+" ");
+                    binding.totalTxt.setText((num*object.getPrice())+" VNĐ");
 
                 }
             }
@@ -69,7 +70,7 @@ public class food_detail extends AppCompatActivity {
 
 
     private void getIntentExtra() {
-        object =(categoryDomain) getIntent().getSerializableExtra("object");
+        object =(food) getIntent().getSerializableExtra("object");
         // tao đã sửa
     }
 }

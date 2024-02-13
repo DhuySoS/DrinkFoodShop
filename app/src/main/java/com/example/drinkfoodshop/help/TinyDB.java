@@ -11,7 +11,8 @@ import android.text.TextUtils;
 import android.util.Log;
 
 
-import com.example.drinkfoodshop.domain.categoryDomain;
+import com.example.drinkfoodshop.domain.food;
+import com.example.drinkfoodshop.domain.food;
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -306,14 +307,14 @@ public class TinyDB {
     }
 
 
-    public ArrayList<categoryDomain> getListObject(String key){
+    public ArrayList<food> getListObject(String key){
         Gson gson = new Gson();
 
         ArrayList<String> objStrings = getListString(key);
-        ArrayList<categoryDomain> playerList =  new ArrayList<categoryDomain>();
+        ArrayList<food> playerList =  new ArrayList<food>();
 
         for(String jObjString : objStrings){
-            categoryDomain player  = gson.fromJson(jObjString,  categoryDomain.class);
+            food player  = gson.fromJson(jObjString,  food.class);
             playerList.add(player);
         }
         return playerList;
@@ -468,11 +469,11 @@ public class TinyDB {
         putString(key, gson.toJson(obj));
     }
 
-    public void putListObject(String key, ArrayList<categoryDomain> playerList){
+    public void putListObject(String key, ArrayList<food> playerList){
         checkForNullKey(key);
         Gson gson = new Gson();
         ArrayList<String> objStrings = new ArrayList<String>();
-        for(categoryDomain player: playerList){
+        for(food player: playerList){
             objStrings.add(gson.toJson(player));
         }
         putListString(key, objStrings);
