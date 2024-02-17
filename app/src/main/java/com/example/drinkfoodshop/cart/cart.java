@@ -13,6 +13,7 @@ import com.example.drinkfoodshop.databinding.ActivityCartBinding;
 import com.example.drinkfoodshop.help.ChangeNumberItemsListener;
 import com.example.drinkfoodshop.help.ManagmentCart;
 import com.example.drinkfoodshop.home.trangChu;
+import com.example.drinkfoodshop.payment.PaymentActivity;
 
 public class cart extends AppCompatActivity {
     private ActivityCartBinding  binding;
@@ -70,13 +71,16 @@ public class cart extends AppCompatActivity {
 
     }
 
-    private void setVariable(){
+    private void setVariable() {
+        binding.button6.setOnClickListener(v -> {
+            Intent intent = new Intent(cart.this, PaymentActivity.class);
+            startActivity(intent);
+        });
         binding.Cart.setOnClickListener(v -> {
             Intent intent = new Intent(cart.this, trangChu.class);
             startActivity(intent);
-            finish();
+            finish(); // Kết thúc activity hiện tại để không quay lại khi nhấn nút Back
         });
-
     }
-    // vu da day
+
 }

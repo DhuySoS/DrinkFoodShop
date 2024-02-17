@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".payment.PaymentActivity">
+
+    <TextView
+        android:id="@+id/textViewPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Số điện thoại"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewPhoneNumber"
+        android:layout_marginTop="8dp"
+        android:hint="Nhập số điện thoại"/>
+
+    <TextView
+        android:id="@+id/textViewAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Địa chỉ"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@id/editTextPhoneNumber"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewAddress"
+        android:layout_marginTop="8dp"
+        android:hint="Nhập địa chỉ"/>
+
+    <TextView
+        android:id="@+id/textViewPaymentMethod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phương thức thanh toán"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@id/editTextAddress"
+        android:layout_marginTop="16dp"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroupPaymentMethod"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewPaymentMethod"
+        android:layout_marginTop="8dp">
+
+        <RadioButton
+            android:id="@+id/radioButtonCash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tiền mặt"/>
+
+        <RadioButton
+            android:id="@+id/radioButtonVNPay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VNPay"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/buttonConfirmPayment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Xác nhận thanh toán"
+        android:layout_below="@id/radioGroupPaymentMethod"
+        android:layout_marginTop="16dp"/>
+
+</RelativeLayout>
