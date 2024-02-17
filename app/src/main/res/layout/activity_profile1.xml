@@ -38,7 +38,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:srcCompat="@drawable/e92dc920_cdca_45c2_a48e_4079fd510dcd" />
+                    app:srcCompat="@drawable/e92dc920_cdca_45c2_a48e_4079fd510dcd" />
 
                 <ImageView
                     android:id="@+id/imageView7"
@@ -49,7 +49,7 @@
                     app:layout_constraintEnd_toEndOf="@+id/imageView5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView5"
-                    tools:srcCompat="@drawable/cd09b412_4d3c_4c80_a540_cb8da218108c" />
+                    app:srcCompat="@drawable/cd09b412_4d3c_4c80_a540_cb8da218108c" />
 
                 <TextView
                     android:id="@+id/textView7"

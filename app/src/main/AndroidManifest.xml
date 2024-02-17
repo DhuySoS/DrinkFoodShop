@@ -15,6 +15,9 @@
         android:theme="@style/Theme.DrinkFoodShop"
         tools:targetApi="31">
         <activity
+            android:name=".payment.PaymentActivity"
+            android:exported="false" />
+        <activity
             android:name=".setting.settingActivity"
             android:exported="false" />
         <activity
@@ -43,12 +46,10 @@
         </activity>
         <activity
             android:name=".cart.cart"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".home.trangChu"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".Profile1.ProfileActivity"
             android:exported="true" />

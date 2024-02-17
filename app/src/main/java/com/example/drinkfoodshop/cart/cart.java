@@ -13,6 +13,7 @@ import com.example.drinkfoodshop.databinding.ActivityCartBinding;
 import com.example.drinkfoodshop.help.ChangeNumberItemsListener;
 import com.example.drinkfoodshop.help.ManagmentCart;
 import com.example.drinkfoodshop.home.trangChu;
+import com.example.drinkfoodshop.payment.PaymentActivity;
 
 public class cart extends AppCompatActivity {
     private ActivityCartBinding  binding;
@@ -71,6 +72,11 @@ public class cart extends AppCompatActivity {
     }
 
     private void setVariable(){
+        binding.btnDatHang.setOnClickListener(v -> {
+            Intent intent = new Intent(cart.this, PaymentActivity.class);
+            startActivity(intent);
+        });
+
         binding.Cart.setOnClickListener(v -> {
             Intent intent = new Intent(cart.this, trangChu.class);
             startActivity(intent);
@@ -78,5 +84,4 @@ public class cart extends AppCompatActivity {
         });
 
     }
-    // vu da day
 }
