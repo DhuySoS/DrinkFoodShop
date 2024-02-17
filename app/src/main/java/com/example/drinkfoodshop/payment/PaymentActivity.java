@@ -1,6 +1,7 @@
 package com.example.drinkfoodshop.payment;
 
 import androidx.appcompat.app.AppCompatActivity;
+// PaymentActivity.java
 
 import android.content.Intent;
 import android.os.Bundle;

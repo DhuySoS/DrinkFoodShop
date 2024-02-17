@@ -77,11 +77,15 @@ public class cart extends AppCompatActivity {
             startActivity(intent);
         });
 
+    private void setVariable() {
+        binding.btnDatHang.setOnClickListener(v -> {
+            Intent intent = new Intent(cart.this, PaymentActivity.class);
+            startActivity(intent);
+        });
         binding.Cart.setOnClickListener(v -> {
             Intent intent = new Intent(cart.this, trangChu.class);
             startActivity(intent);
-            finish();
+            finish(); // Kết thúc activity hiện tại để không quay lại khi nhấn nút Back
         });
-
     }
 }

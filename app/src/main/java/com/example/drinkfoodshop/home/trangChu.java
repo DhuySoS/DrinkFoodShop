@@ -30,6 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import java.util.ArrayList;
 
@@ -46,10 +47,20 @@ public class trangChu extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         lProfile = findViewById(R.id.linearProfile);
-//        lCart=findViewById(R.id.linearCart);
-        btnCart=findViewById(R.id.cartHome);
+        btnCart = findViewById(R.id.cartHome);
         lHelp = findViewById(R.id.linearHelp);
         lSetting = findViewById(R.id.linearSetting);
+
+        // Thêm sự kiện click cho ảnh người dùng
+        CircleImageView profileImage = findViewById(R.id.profile_image);
+        profileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(trangChu.this, Profile1.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         onclick();
         recyclerViewCategory();
