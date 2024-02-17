@@ -79,14 +79,14 @@ public class trangChu extends AppCompatActivity {
             }
         });
 
-        binding.profileImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(trangChu.this, Profile1.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        binding.profileImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(trangChu.this, Profile1.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
     }
 
 
@@ -179,4 +179,5 @@ public class trangChu extends AppCompatActivity {
         });
 
     }
+
 }

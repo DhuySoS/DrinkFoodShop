@@ -10,10 +10,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.drinkfoodshop.R;
 import com.example.drinkfoodshop.home.trangChu;
+import com.example.drinkfoodshop.theme.forgotPassActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -23,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnSignIn;
     private EditText strEmail,strpass;
     private ProgressDialog progressDialog;
+    private TextView forgotPassTv;
     FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         strpass = findViewById(R.id.editPass);
         progressDialog = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
+        forgotPassTv = findViewById(R.id.forgotPassTxt);
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +64,14 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             });
                 }
+            }
+        });
+
+        forgotPassTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, forgotPassActivity.class);
+                startActivity(intent);
             }
         });
     }

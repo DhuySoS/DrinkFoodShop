@@ -67,6 +67,6 @@ public class ManagmentCart {
 // ham clear gio hang sau khi thanh toan
     public void clearCart() {
         tinyDB.remove("CartList");
-        Toast.makeText(context, "Cart cleared", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Thanh toán thành công", Toast.LENGTH_SHORT).show();
     }
 }
