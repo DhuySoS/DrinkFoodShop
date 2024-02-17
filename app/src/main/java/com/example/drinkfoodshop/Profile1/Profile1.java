@@ -6,20 +6,66 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.drinkfoodshop.R;
 import com.example.drinkfoodshop.cart.cart;
+import com.example.drinkfoodshop.databinding.ActivityProfile1Binding;
 import com.example.drinkfoodshop.foodList.listFoodsActivity;
 import com.example.drinkfoodshop.help.CustomerSupportActivity;
 import com.example.drinkfoodshop.home.trangChu;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Profile1 extends AppCompatActivity {
+    private ActivityProfile1Binding binding;
+    private TextView nameTxt, emailTxt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile1);
+        binding = ActivityProfile1Binding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        initUi();
+        setVariable();
+        showUserInfor();
+    }
 
-        findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
+    private void showUserInfor() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user == null){
+            return;
+        }
+
+        String name = user.getDisplayName();
+        String email = user.getEmail();
+
+        if(name == null ){
+            nameTxt.setVisibility(View.GONE);
+        }else {
+            nameTxt.setVisibility(View.VISIBLE);
+            nameTxt.setText(name);
+        }
+        emailTxt.setText(email);
+    }
+
+    private void initUi() {
+        nameTxt = findViewById(R.id.tv_Name);
+        emailTxt = findViewById(R.id.tv_email);
+    }
+
+    private void setVariable() {
+        binding.backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Profile1.this, trangChu.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        binding.button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Profile1.this, listFoodsActivity.class);
@@ -27,7 +73,7 @@ public class Profile1 extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
+        binding.button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Profile1.this, cart.class);
@@ -35,14 +81,12 @@ public class Profile1 extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.button5).setOnClickListener(new View.OnClickListener() {
+        binding.button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Profile1.this, CustomerSupportActivity.class);
                 startActivity(intent);
             }
         });
-
-
     }
 }
