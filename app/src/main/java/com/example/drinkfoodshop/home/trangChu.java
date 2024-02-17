@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.drinkfoodshop.Profile1.Profile1;
 import com.example.drinkfoodshop.Profile1.ProfileActivity;
 import com.example.drinkfoodshop.R;
 import com.example.drinkfoodshop.adapter.bestFoodAdapter;
@@ -66,6 +67,15 @@ public class trangChu extends AppCompatActivity {
                 startActivity((intent));
             }
         });
+
+        binding.profileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(trangChu.this, Profile1.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
 
@@ -74,7 +84,7 @@ public class trangChu extends AppCompatActivity {
         lProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(trangChu.this, ProfileActivity.class);
+                Intent intent = new Intent(trangChu.this, Profile1.class);
                 startActivity(intent);
                 finish();
             }
