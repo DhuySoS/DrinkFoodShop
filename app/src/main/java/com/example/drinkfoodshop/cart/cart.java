@@ -71,12 +71,6 @@ public class cart extends AppCompatActivity {
 
     }
 
-    private void setVariable(){
-        binding.btnDatHang.setOnClickListener(v -> {
-            Intent intent = new Intent(cart.this, PaymentActivity.class);
-            startActivity(intent);
-        });
-
     private void setVariable() {
         binding.btnDatHang.setOnClickListener(v -> {
             Intent intent = new Intent(cart.this, PaymentActivity.class);
