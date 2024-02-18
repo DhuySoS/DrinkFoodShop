@@ -42,43 +42,43 @@ public class catagoryAdapter extends RecyclerView.Adapter<catagoryAdapter.ViewHo
         String picUrl="";
         switch (position){
             case 0:{
-                picUrl="cat_1";
+                picUrl="cat_01";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.cat_background1));
                 break;
             }
             case 1:{
-                picUrl="cat_2";
+                picUrl="cat_02";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background2));
                 break;
             }
             case 2:{
-                picUrl="cat_3";
+                picUrl="cat_03";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.cat_background3));
                 break;
             }
             case 3:{
-                picUrl="cat_4";
+                picUrl="cat_04";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background4));
                 break;
             }
             case 4:{
-                picUrl="cat_5";
+                picUrl="cat_05";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.cat_background5));
                 break;
             }
             case 5:{
-                picUrl="cat_6";
+                picUrl="cat_06";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.cat_background6));
                 break;
             }
             case 6:{
-                picUrl="cat_7";
+                picUrl="cat_07";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.cat_background7));
                 break;
             }
             case 7:{
-                picUrl="cat_8";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.cat_background1));
+                picUrl="cat_08";
+                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.cat_background8));
                 break;
             }
         }
