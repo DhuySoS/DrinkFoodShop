@@ -1,10 +1,12 @@
 package com.example.drinkfoodshop.help;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
 import android.widget.Toast;
 
-import com.example.drinkfoodshop.domain.categoryDomain;
 import com.example.drinkfoodshop.domain.food;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -68,5 +70,24 @@ public class ManagmentCart {
     public void clearCart() {
         tinyDB.remove("CartList");
         Toast.makeText(context, "Thanh toán thành công", Toast.LENGTH_SHORT).show();
+    }
+
+    // Thêm hàm này để lưu thông tin món ăn vào SharedPreferences
+    public void saveFoodInfo(String phoneNumber, String address, String paymentMethod) {
+        // Lưu thông tin món ăn
+        SharedPreferences sharedPreferences = context.getSharedPreferences("OrderInfo", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        Gson gson = new Gson();
+        String json = gson.toJson(getListCart());
+
+        editor.putString("orderHistory", json);
+
+        // Lưu thông tin thanh toán
+        editor.putString("phoneNumber", phoneNumber);
+        editor.putString("address", address);
+        editor.putString("paymentMethod", paymentMethod);
+
+        editor.apply();
     }
 }

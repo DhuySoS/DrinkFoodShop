@@ -1,7 +1,6 @@
 package com.example.drinkfoodshop.payment;
 
 import androidx.appcompat.app.AppCompatActivity;
-// PaymentActivity.java
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +12,12 @@ import android.widget.Toast;
 
 import com.example.drinkfoodshop.R;
 import com.example.drinkfoodshop.cart.cart;
+import com.example.drinkfoodshop.domain.food;
 import com.example.drinkfoodshop.help.ManagmentCart;
+import com.example.drinkfoodshop.saveHistory.YourHistoryActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PaymentActivity extends AppCompatActivity {
     private EditText phoneNumberEditText;
@@ -24,9 +28,11 @@ public class PaymentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+
         phoneNumberEditText = findViewById(R.id.editTextPhoneNumber);
         addressEditText = findViewById(R.id.editTextAddress);
         paymentMethodRadioGroup = findViewById(R.id.radioGroupPaymentMethod);
+
         Button confirmPaymentButton = findViewById(R.id.buttonConfirmPayment);
 
         confirmPaymentButton.setOnClickListener(v -> {
@@ -41,19 +47,26 @@ public class PaymentActivity extends AppCompatActivity {
                 RadioButton selectedPaymentMethod = findViewById(paymentMethodRadioGroup.getCheckedRadioButtonId());
                 String paymentMethod = selectedPaymentMethod.getText().toString();
 
-                // Display a success message
-                Toast.makeText(this, "Thanh toán thành công bằng " + paymentMethod, Toast.LENGTH_SHORT).show();
+                // Lưu thông tin vào SharedPreferences và quản lý giỏ hàng
+                saveOrderInfoToSharedPreferences(phoneNumber, address, paymentMethod);
 
-                // Clear the cart (Assuming you have a method to clear the cart in the ManagmentCart class)
+                // Xóa giỏ hàng
                 ManagmentCart managmentCart = new ManagmentCart(this);
                 managmentCart.clearCart();
 
-                // Navigate back to the home screen
+                // Chuyển sang trang hỗ trợ (hoặc trang mong muốn)
                 Intent intent = new Intent(PaymentActivity.this, cart.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // Clear the stack, so pressing back won't go back to PaymentActivity
                 startActivity(intent);
+
+                // Kết thúc activity
                 finish();
             }
         });
+    }
+
+    private void saveOrderInfoToSharedPreferences(String phoneNumber, String address, String paymentMethod) {
+        // Lưu thông tin vào SharedPreferences và quản lý giỏ hàng
+        ManagmentCart managmentCart = new ManagmentCart(this);
+        managmentCart.saveFoodInfo(phoneNumber, address, paymentMethod);
     }
 }

@@ -151,7 +151,7 @@
                         android:drawableStart="@drawable/btn_4"
                         android:drawablePadding="20dp"
                         android:paddingStart="20dp"
-                        android:text="Điều khoản"
+                        android:text="Lịch Sử Đơn Hàng"
                         android:textAlignment="viewStart" />
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -168,6 +168,7 @@
                         android:paddingStart="20dp"
                         android:text="Trợ giúp"
                         android:textAlignment="viewStart" />
+
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

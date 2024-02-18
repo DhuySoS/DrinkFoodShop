@@ -10,6 +10,7 @@ import com.example.drinkfoodshop.databinding.ActivityProfile1Binding;
 import com.example.drinkfoodshop.foodList.listFoodsActivity;
 import com.example.drinkfoodshop.help.CustomerSupportActivity;
 import com.example.drinkfoodshop.home.trangChu;
+import com.example.drinkfoodshop.saveHistory.YourHistoryActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -77,6 +78,14 @@ public class Profile1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Profile1.this, cart.class);
+                startActivity(intent);
+            }
+        });
+        binding.button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Xử lý khi nút "Lịch Sử Đơn Hàng" được bấm
+                Intent intent = new Intent(Profile1.this, YourHistoryActivity.class); // Thay YourHistoryActivity bằng tên Activity của bạn
                 startActivity(intent);
             }
         });
