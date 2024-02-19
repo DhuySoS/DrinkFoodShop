@@ -87,7 +87,8 @@ public class ManagmentCart {
         editor.putString("phoneNumber", phoneNumber);
         editor.putString("address", address);
         editor.putString("paymentMethod", paymentMethod);
-
+        String json1 = gson.toJson(Math.round(getTotalFee()+(getTotalFee()*0.02*100)/100));
+        editor.putString("total", json1);
         editor.apply();
     }
 }

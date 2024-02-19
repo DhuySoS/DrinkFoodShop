@@ -154,7 +154,7 @@ public class trangChu extends AppCompatActivity {
         DatabaseReference myRef = database.getReference("Foods");
         binding.progressBar.setVisibility(View.VISIBLE);
         ArrayList<food> list = new ArrayList<>();
-        Query query = myRef.orderByChild("BestFood").equalTo(false);
+        Query query = myRef.orderByChild("BestFood").equalTo(true);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

@@ -11,6 +11,7 @@ import com.example.drinkfoodshop.foodList.listFoodsActivity;
 import com.example.drinkfoodshop.help.CustomerSupportActivity;
 import com.example.drinkfoodshop.home.trangChu;
 import com.example.drinkfoodshop.saveHistory.YourHistoryActivity;
+import com.example.drinkfoodshop.setting.settingActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -65,7 +66,13 @@ public class Profile1 extends AppCompatActivity {
                 finish();
             }
         });
-
+        binding.button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Profile1.this, settingActivity.class);
+                startActivity(intent);
+            }
+        });
         binding.button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

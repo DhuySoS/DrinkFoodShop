@@ -8,11 +8,26 @@
     tools:context=".saveHistory.YourHistoryActivity">
 
     <TextView
+        android:id="@+id/historyTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        android:drawableLeft="@drawable/back"
+        android:padding="12dp"
+        android:text="Lịch sử mua hàng"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="40dp"/>
+
+    <TextView
         android:id="@+id/tvPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:layout_below="@id/historyTitle"
         android:layout_marginBottom="8dp"/>
 
     <TextView
@@ -31,6 +46,23 @@
         android:textSize="16sp"
         android:textStyle="bold"
         android:layout_below="@id/tvAddress"
+        android:layout_marginBottom="8dp"/>
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_below="@id/tvPaymentMethod"
+        android:layout_marginBottom="8dp"/>
+    <TextView
+        android:id="@+id/tvDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="Chi tiết đơn hàng"
+        android:layout_below="@id/tvTotal"
         android:layout_marginBottom="16dp"/>
 
     <!-- Phần layout trước đó -->
@@ -39,7 +71,7 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tvPaymentMethod"/>
+        android:layout_below="@id/tvDetail"/>
 
 
 </RelativeLayout>

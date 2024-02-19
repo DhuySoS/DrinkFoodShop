@@ -58,16 +58,15 @@ public class cart extends AppCompatActivity {
 
     private void caculateCart() {
         double percenttax=0.02;
-        double delivery=15000;
+        String delivery="Miễn phí";
         tax=Math.round(managmentCart.getTotalFee()*percenttax*100)/100;
-        double total=Math.round(managmentCart.getTotalFee() +tax+delivery);
+        double total=Math.round(managmentCart.getTotalFee() +tax);
         double itemTotal=Math.round(managmentCart.getTotalFee()*100)/100;
 
-        binding.tongtxt.setText(itemTotal+"VND ");
-        binding.thuetxt.setText(tax+"VND ");
+        binding.tongtxt.setText(itemTotal+" VNĐ");
+        binding.thuetxt.setText(tax+" VNĐ");
         binding.shiptxt.setText(delivery+" ");
-        binding.tongtxt.setText(total+ "VND");
-
+        binding.tienTxt.setText(total+" VNĐ");
 
     }
 
