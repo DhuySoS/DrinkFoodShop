@@ -41,11 +41,11 @@ public class CustomerSupportActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         ArrayList<function> functions = new ArrayList<>();
-        functions.add(new function("Câu Hỏi Thường Gặp 1", "Xem câu trả lời cho câu hỏi thường gặp 1"));
-        functions.add(new function("Câu Hỏi Thường Gặp 2", "Xem câu trả lời cho câu hỏi thường gặp 2"));
-        functions.add(new function("Câu Hỏi Thường Gặp 3", "Xem câu trả lời cho câu hỏi thường gặp 3"));
-        functions.add(new function("Câu Hỏi Thường Gặp 4", "Xem câu trả lời cho câu hỏi thường gặp 4"));
-        functions.add(new function("Câu Hỏi Thường Gặp 5", "Xem câu trả lời cho câu hỏi thường gặp 5"));
+        functions.add(new function("Câu Hỏi Thường Gặp 1", "Tiền đơn hàng bao gồm gì?"));
+        functions.add(new function("Câu Hỏi Thường Gặp 2", "Làm sao để mua hàng?"));
+        functions.add(new function("Câu Hỏi Thường Gặp 3", "Làm sao để đổi tài khoản?"));
+        functions.add(new function("Câu Hỏi Thường Gặp 4", "Làm sao để xem thông tin người dùng?"));
+        functions.add(new function("Câu Hỏi Thường Gặp 5", "Làm sao để đổi tên người dùng"));
         functions.add(new function("Hotline", "Gọi đến Hotline"));
 
         functionAdapter = new FunctionAdapter(functions, new FunctionAdapter.OnItemClickListener() {
@@ -54,23 +54,23 @@ public class CustomerSupportActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         // Hiển thị câu trả lời cho câu hỏi thường gặp 1
-                        showAnswer("Câu trả lời cho câu hỏi thường gặp 1");
+                        showAnswer("Tiền hàng và tiền thuế.");
                         break;
                     case 1:
                         // Hiển thị câu trả lời cho câu hỏi thường gặp 2
-                        showAnswer("Câu trả lời cho câu hỏi thường gặp 2");
+                        showAnswer("Tìm và chọn sản phẩm mong muốn. Sau đó chọn số lượng rồi thêm vào giỏ hàng. Về màn hình chính rồi bấm biểu tượng giỏ hàng sau đó tiến hành thanh toán.");
                         break;
                     case 2:
                         // Hiển thị câu trả lời cho câu hỏi thường gặp 3
-                        showAnswer("Câu trả lời cho câu hỏi thường gặp 3");
+                        showAnswer("Vào cài đặt sau đó bấm vào đăng xuất để tiến hành đổi tài khoản.");
                         break;
                     case 3:
                         // Hiển thị câu trả lời cho câu hỏi thường gặp 4
-                        showAnswer("Câu trả lời cho câu hỏi thường gặp 4");
+                        showAnswer("2 cách: 1 bấm vào phần cá nhân, 2 bấm vào ảnh ở góc phải trên cùng ở trang chủ.");
                         break;
                     case 4:
                         // Hiển thị câu trả lời cho câu hỏi thường gặp 5
-                        showAnswer("Câu trả lời cho câu hỏi thường gặp 5");
+                        showAnswer("Vào cài đặt sau đó nhập tên và bấm nút đổi tên để tiến hành đổi tên người dùng.");
                         break;
                     case 5:
                         // Gọi đến số hotline
